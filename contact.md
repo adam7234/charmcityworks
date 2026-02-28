@@ -1,23 +1,46 @@
 ---
 layout: page
 title: Contact
-subtitle: Book an appointment for the fastest turnaround. For questions or scheduling issues, email or text.
+subtitle: Have a project in mind, want to get involved, or have a question? Reach out here.
 permalink: /contact/
 ---
 
-## Book an appointment
-For the fastest service, use the Book Now page to pick a time.  
-[Book Now](https://app.squareup.com/appointments/book/b6dd00ac-e8a5-4a10-a8c7-375070b1a98b/WTY7E5N1ZCYCW/start)
+Charm City Build Club is built around practical community projects, shared effort, and learning by doing.
 
-## If you need to reach me directly
+If you have a project to submit, want to volunteer, or just want to ask a question, reach out directly.
+
+## Submit a project
+
+If you have a small, practical project that could benefit from community support, send the details by email or text.
+
+A strong submission includes:
+
+- A short description of the project
+- Photos of the space or issue
+- Address or neighborhood
+- Why the project matters
+- Any timing considerations
+- Anything important about the scope, condition, or materials
+
+The clearer the submission, the easier it is to understand whether the project is a good fit.
+
+## Volunteer or get involved
+
+If you want to help, learn practical skills, or be part of future build days, reach out and say hello.
+
+You do not need to be an expert. The goal is to create a practical, low-barrier way for people to contribute, learn, and build community through useful work.
+
+## Contact
+
 Email: adamshuster1@gmail.com  
 Phone/Text: (301) 582-8577
 
-## What to include (if you’re requesting a quote)
-- Photos (wide + close-up)
-- Measurements (if relevant)
-- Address / neighborhood
-- Desired timeline
-- Links to any items you purchased (mount, shelves, etc.)
+## A note on fit
 
-If it’s easier, paste your punch-list and I’ll suggest the most efficient order to tackle it.
+Charm City Build Club is focused on smaller, practical, community-centered projects that make sense for shared effort and volunteer participation.
+
+Large technical jobs, high-risk work, and projects requiring licensed professionals may not be a fit.
+
+## Want to start the conversation?
+
+Send a message with your project idea, your interest in helping, or any questions about the project.
