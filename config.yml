@@ -1,0 +1,16 @@
+title: Blueprint Home Services
+description: Reliable local handyman help — small repairs, installs, and punch-list work.
+url: "https://www.blueprintmaintenanceservices.com" # set later (e.g. https://yourname.github.io)
+baseurl: "" # leave empty for root
+timezone: America/New_York
+
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

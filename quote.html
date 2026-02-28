@@ -1,0 +1,88 @@
+---
+layout: default
+title: Request a Quote
+description: Send a short description and a few photos. I’ll review the job and send the right booking link if it’s a fit.
+permalink: /quote/
+---
+
+<section class="py-5 bg-light border-bottom">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <h1 class="display-5 fw-bold mb-3">Request a Quote</h1>
+        <p class="lead text-secondary mb-2">
+          Send a short description and a few photos. I’ll review the job and send the right booking link if it’s a fit.
+        </p>
+        <p class="small text-secondary mb-0">
+          Booking is confirmed only after review.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center g-4">
+      <div class="col-lg-8">
+        <div class="p-3 p-md-4 bg-white border rounded-3 shadow-sm">
+          <iframe
+            data-tally-src="https://tally.so/embed/GxrJep?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="976"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Request a Quote">
+          </iframe>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="p-4 bg-white border rounded-3 shadow-sm">
+          <h2 class="h6 fw-bold mb-3">Good Fit for This Service</h2>
+          <ul class="small text-secondary ps-3 mb-4">
+            <li>Drywall patches</li>
+            <li>Caulking and sealing</li>
+            <li>Mounting and hanging</li>
+            <li>Sticking doors and hardware fixes</li>
+            <li>Small punch-list repair items</li>
+          </ul>
+
+          <h2 class="h6 fw-bold mb-3">Outside Current Scope</h2>
+          <ul class="small text-secondary ps-3 mb-0">
+            <li>Major electrical work</li>
+            <li>Major plumbing work</li>
+            <li>Structural repairs</li>
+            <li>Large remodels</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  var d = document,
+      w = "https://tally.so/widgets/embed.js",
+      v = function () {
+        if (typeof Tally !== "undefined") {
+          Tally.loadEmbeds();
+        } else {
+          d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function (e) {
+            e.src = e.dataset.tallySrc;
+          });
+        }
+      };
+
+  if (typeof Tally !== "undefined") {
+    v();
+  } else if (d.querySelector('script[src="' + w + '"]') == null) {
+    var s = d.createElement("script");
+    s.src = w;
+    s.onload = v;
+    s.onerror = v;
+    d.body.appendChild(s);
+  }
+</script>
