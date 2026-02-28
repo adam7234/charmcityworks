@@ -6,7 +6,7 @@ permalink: /about/
 
 Charm City Build Club is built on a simple idea: useful work can create community.
 
-What do we know?
+## What do we know?
 
 We know Baltimore has real physical work to be done. There are homes, blocks, and neighborhood spaces that need care, cleanup, repair, and practical improvement.
 
@@ -24,7 +24,7 @@ Charm City Build Club exists at the intersection of those realities.
 
 It is a Baltimore-based community project that turns small, practical needs into opportunities for service, skill-building, and shared effort. The goal is to create visible value in the city while giving people a more meaningful way to connect, contribute, and learn.
 
-How it all connects
+## How it all connects
 
 Baltimore has real work to do.
 
@@ -37,9 +37,3 @@ Shared effort creates community.
 Community, combined with hands-on work, creates learning.
 
 Learning creates value for the individual and for the city.
-
-That is the model:
-service through real work
-learning through doing
-community through shared effort
-value through practical action
