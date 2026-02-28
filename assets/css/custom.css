@@ -1,63 +1,57 @@
 /* -------------------------------------------------
-   Blueprint Maintenance Services — Pro Theme
-   Paste into: assets/css/custom.css
+   Charm City Build Club — Simpler / Warmer Civic Theme
 -------------------------------------------------- */
 
 :root{
-  --bg: #0b1220;
-  --surface: #0f1a2e;
+  --bg: #fcfcf9;
+  --surface: #f5f7f4;
+  --surface-2: #eef3ef;
 
-  --ink: #0f172a;
-  --muted: rgba(15,23,42,0.70);
+  --ink: #17212b;
+  --muted: rgba(23,33,43,.72);
 
-  --brand: #1e40af;        /* deep blueprint blue */
-  --brand-hover: #1e3a8a;  /* deeper on hover */
-  --brand-2: #6366f1;      /* vibrant indigo accent */
-  --success: #059669;
+  /* Main accent: teal */
+  --accent: #0f766e;
+  --accent-dark: #0b5f59;
+  --accent-hi: #14b8a6;
 
-  --ring: rgba(30,64,175,.20);
-  --radius: 18px;
+  /* Secondary: muted blue to support the logo */
+  --brand-soft: #315c9a;
+  --brand-soft-light: rgba(49,92,154,.08);
+
+  --border: rgba(23,33,43,.10);
+  --border-strong: rgba(23,33,43,.16);
+  --ring: rgba(15,118,110,.18);
+
+  --radius: 14px;
 }
 
 /* Base */
-html, body{ height: 100%; }
+html, body { height: 100%; }
+
 body{
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--ink);
-  background: #ffffff;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Headings */
+/* Headings: less branded, less “startup” */
 h1, h2, h3, h4, h5, h6, .display-5, .navbar-brand{
-  font-family: 'Outfit', 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   letter-spacing: -.02em;
   font-weight: 700;
 }
-/* Hero lead copy: sharper, more professional */
-.lead{
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1.05rem;          /* slightly tighter than default */
-  line-height: 1.58;           /* crisper than 1.7 */
-  color: rgba(15,23,42,.82);   /* darker = more “pro” */
-  max-width: 56ch;             /* prevents overly long lines */
-}
 
-/* Optional: make hero paragraph even tighter without affecting other leads */
-.hero .lead{
-  font-size: 1.04rem;
-  line-height: 1.55;
+.lead{
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--muted);
   max-width: 58ch;
 }
 
-/* Optional: add a “lead-strong” class to bold the first sentence */
-.lead-strong{
-  font-weight: 600;
-  color: rgba(15,23,42,.90);
-}
-
-/* Focus ring */
+/* Focus */
 a:focus, .btn:focus, .form-control:focus{
   box-shadow: 0 0 0 .25rem var(--ring) !important;
   outline: none;
@@ -66,343 +60,255 @@ a:focus, .btn:focus, .form-control:focus{
 /* -------------------------------------------------
    Navbar
 -------------------------------------------------- */
-
-/* Default (light) navbar */
 .navbar{
-  background: rgba(255,255,255,0.95) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(15,23,42,.06) !important;
-  position: relative;
+  background: rgba(252,252,249,.94) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border) !important;
   z-index: 9999;
 }
 
 .navbar-brand{
-  letter-spacing: -.01em;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 .nav-link{
-  color: rgba(15,23,42,.75) !important;
+  color: rgba(23,33,43,.78) !important;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: color .18s ease;
 }
+
 .nav-link:hover{
-  color: var(--brand) !important;
-}
-
-/* Tinted/Dark navbar option
-   Use: <nav class="navbar navbar-expand-lg navbar-tinted sticky-top">
-*/
-.navbar.navbar-tinted{
-  background: radial-gradient(900px 500px at 20% 0%, rgba(99,102,241,.22), transparent 60%),
-              linear-gradient(180deg, rgba(11,18,32,.92), rgba(11,18,32,.86)) !important;
-  border-bottom: 1px solid rgba(255,255,255,.10) !important;
-}
-
-.navbar.navbar-tinted .navbar-brand,
-.navbar.navbar-tinted .nav-link{
-  color: rgba(255,255,255,.86) !important;
-}
-
-.navbar.navbar-tinted .nav-link:hover{
-  color: rgba(255,255,255,1) !important;
+  color: var(--accent) !important;
 }
 
 .navbar-toggler{
-  border-color: rgba(15,23,42,.18);
-}
-.navbar-toggler-icon{
-  background-image: var(--bs-navbar-toggler-icon-bg);
-}
-
-/* Ensure toggler visible on tinted nav */
-.navbar.navbar-tinted .navbar-toggler{
-  border-color: rgba(255,255,255,.25);
-}
-.navbar.navbar-tinted .navbar-toggler-icon{
-  filter: invert(1);
+  border-color: var(--border-strong);
 }
 
 /* -------------------------------------------------
    Buttons
 -------------------------------------------------- */
 .btn{
-  font-family: 'Outfit', 'Inter', sans-serif;
-  border-radius: 12px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  border-radius: 10px;
   font-weight: 600;
-  letter-spacing: -.01em;
-  transition: all 0.2s ease;
+  transition: all .18s ease;
 }
 
 .btn-primary{
-  background: var(--brand);
-  border: none;
-  color: white;
-  box-shadow: 0 2px 8px rgba(30,64,175,.25),
-              0 1px 2px rgba(30,64,175,.15);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+  box-shadow: none;
 }
+
 .btn-primary:hover{
-  background: var(--brand-hover);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(30,64,175,.30),
-              0 2px 4px rgba(30,64,175,.20);
 }
-.btn-primary:active{ transform: translateY(0); }
+
+.btn-primary:active{
+  transform: translateY(0);
+}
 
 .btn-outline-primary{
-  border: 1.5px solid var(--brand);
-  color: var(--brand);
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
   background: transparent;
 }
+
 .btn-outline-primary:hover{
-  background: var(--brand);
-  color: white;
-  border-color: var(--brand);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
 }
 
 .btn-outline-secondary{
-  border: 1.5px solid rgba(15,23,42,.18);
-  color: rgba(15,23,42,.80);
+  border: 1px solid var(--border-strong);
+  color: rgba(23,33,43,.82);
   background: transparent;
 }
+
 .btn-outline-secondary:hover{
-  border-color: rgba(15,23,42,.30);
-  background: rgba(15,23,42,.05);
+  background: rgba(23,33,43,.04);
+  border-color: rgba(23,33,43,.22);
   color: var(--ink);
 }
 
-.btn-sm{ padding: 0.45rem 0.9rem; }
-.btn-lg{ padding: 0.85rem 2rem; font-size: 1.05rem; }
+.btn-sm{ padding: .45rem .9rem; }
+.btn-lg{ padding: .8rem 1.6rem; font-size: 1rem; }
 
 /* -------------------------------------------------
    Badges / chips
 -------------------------------------------------- */
 .badge-soft{
-  background: rgba(30,64,175,.08);
-  color: var(--brand);
-  border: 1px solid rgba(30,64,175,.12);
+  background: rgba(15,118,110,.08);
+  color: var(--accent);
+  border: 1px solid rgba(15,118,110,.14);
   font-weight: 600;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
+  padding: .48rem .9rem;
+  font-size: .84rem;
 }
 
-.badge.text-bg-light{
-  background: rgba(15,23,42,.06) !important;
-  color: rgba(15,23,42,.75) !important;
-  border: 1px solid rgba(15,23,42,.12);
-  font-weight: 600;
-}
-
-.project-img {
+/* -------------------------------------------------
+   Images
+-------------------------------------------------- */
+.project-img{
   width: 100%;
-  /* Force a square or specific rectangle */
-  aspect-ratio: 1 / 1; 
-  /* This prevents the image from looking squashed */
-  object-fit: cover; 
-  /* Optional: keeps the focus on the center of the photo */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   object-position: center;
 }
 
 /* -------------------------------------------------
-   Hero section (adds “pop” while staying clean)
-   Use: <section class="py-5 hero">
+   Hero
 -------------------------------------------------- */
 .hero{
-  background:
-    radial-gradient(1400px 700px at 10% 0%, rgba(30,64,175,.12), transparent 60%),
-    radial-gradient(900px 600px at 90% 20%, rgba(99,102,241,.14), transparent 55%),
-    linear-gradient(180deg, rgba(249,250,251,1), rgba(255,255,255,1));
-  border-bottom: 1px solid rgba(15,23,42,.06);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
 .hero .badge-soft{
-  background: rgba(255,255,255,.70);
-  border: 1px solid rgba(15,23,42,.10);
-  color: rgba(15,23,42,.80);
+  background: rgba(255,255,255,.72);
+  border-color: var(--border);
+  color: rgba(23,33,43,.82);
 }
 
 /* -------------------------------------------------
-   Cards
+   Cards / panels
 -------------------------------------------------- */
-.hero-card{
-  border: 1px solid rgba(15,23,42,.08);
-  border-radius: var(--radius);
-  box-shadow: 0 20px 60px rgba(2,6,23,.08);
-  position: relative;
-  overflow: hidden;
+.hero-card,
+.card-pro{
   background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(23,33,43,.05);
 }
+
+.hero-card{
+  overflow: hidden;
+}
+
 .hero-card::before{
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  display: block;
   height: 3px;
-  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  background: var(--accent);
 }
 
 .card-pro{
-  border-radius: var(--radius);
-  border: 1px solid rgba(15,23,42,.08);
-  background: #fff;
-  box-shadow: 0 12px 40px rgba(2,6,23,.06);
-  transition: all 0.3s ease;
-}
-.card-pro:hover{
-  box-shadow: 0 16px 50px rgba(2,6,23,.10);
-  transform: translateY(-2px);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
-.card-pro .kicker{
-  font-size: .78rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--brand-2);
-  font-weight: 700;
-}
-.card-pro .title{
-  font-weight: 700;
-  font-size: 1.05rem;
-  margin: 0;
-  color: var(--ink);
-}
-.card-pro .desc{
-  color: rgba(15,23,42,.70);
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Make your simple bordered blocks feel nicer */
-.border.rounded-3{
-  border-color: rgba(15,23,42,.08) !important;
-  transition: all 0.3s ease;
-}
+.card-pro:hover,
 .border.rounded-3:hover{
-  border-color: rgba(30,64,175,.25) !important;
-  box-shadow: 0 4px 12px rgba(30,64,175,.08);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(23,33,43,.06);
+  border-color: rgba(15,118,110,.18) !important;
+}
+
+/* Tone down generic bordered blocks */
+.border.rounded-3{
+  border-color: var(--border) !important;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 
 /* -------------------------------------------------
-   Section surfaces (your “bands”)
+   Section surfaces
 -------------------------------------------------- */
-.surface{
-  background: radial-gradient(1400px 700px at 15% 0%, rgba(99,102,241,.06), transparent 65%),
-              radial-gradient(1000px 600px at 85% 30%, rgba(30,64,175,.05), transparent 60%),
-              rgba(249,250,251,1);
-  border-top: 1px solid rgba(15,23,42,.06);
-  border-bottom: 1px solid rgba(15,23,42,.06);
+.bg-light{
+  background: var(--surface) !important;
 }
-.bg-light{ background: rgba(249,250,251,1) !important; }
+
+.surface{
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
 
 /* -------------------------------------------------
    Footer
 -------------------------------------------------- */
 .site-footer{
-  background: radial-gradient(1200px 600px at 10% 0%, rgba(30,64,175,.15), transparent 60%),
-              radial-gradient(900px 500px at 90% 20%, rgba(99,102,241,.12), transparent 60%),
-              var(--bg);
+  background: #1b2a2a;
   color: rgba(255,255,255,.92);
 }
+
 .site-footer .text-muted{
   color: rgba(255,255,255,.68) !important;
 }
 
 .footer-title{
   font-weight: 700;
-  letter-spacing: .08em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   font-size: .78rem;
-  color: rgba(255,255,255,.75);
+  color: rgba(255,255,255,.72);
   margin-bottom: .75rem;
 }
 
-.footer-links a{
-  display: inline-block;
-  padding: .3rem 0;
-  color: rgba(255,255,255,.80);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.footer-links a:hover{ color: var(--brand-2); }
-
-.footer-contact{
-  color: rgba(255,255,255,.88);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.footer-contact:hover{ color: var(--brand-2); }
-
+.footer-links a,
+.footer-contact,
 .footer-legal{
-  color: rgba(255,255,255,.72);
+  color: rgba(255,255,255,.82);
   text-decoration: none;
 }
-.footer-legal:hover{ color: rgba(255,255,255,1); }
 
-.footer-hr{ border-color: rgba(255,255,255,.14); }
+.footer-links a:hover,
+.footer-contact:hover,
+.footer-legal:hover{
+  color: #fff;
+}
+
+.footer-hr{
+  border-color: rgba(255,255,255,.12);
+}
 
 .footer-mark{
   width: 34px;
   height: 34px;
   border-radius: 10px;
   object-fit: contain;
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
 }
 
 .footer-btn{
-  border-radius: 12px;
-  border-color: rgba(255,255,255,.22) !important;
-  transition: all 0.2s ease;
+  border-radius: 10px;
+  border-color: rgba(255,255,255,.18) !important;
 }
+
 .footer-btn:hover{
-  border-color: var(--brand-2) !important;
-  background: rgba(99,102,241,.15) !important;
+  background: rgba(255,255,255,.08) !important;
+  border-color: rgba(255,255,255,.28) !important;
 }
 
-/* Fonts */
-body{
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  color: var(--ink);
-  background: #ffffff;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+/* -------------------------------------------------
+   Content rhythm
+-------------------------------------------------- */
+hr{ opacity: .1; }
 
-h1, h2, h3, h4, h5, h6, .display-5, .navbar-brand{
-  font-family: 'Outfit', 'Inter', sans-serif;
-  letter-spacing: -.02em;
-  font-weight: 700;
-}
-
-.btn{
-  font-family: 'Outfit', 'Inter', sans-serif;
-}
-
-/* Optional: subtle global smoothing */
-hr{ opacity: .12; }
-
-/* Content: subtle global smoothing */
 .content{
   font-size: 18px;
-  line-height: 1.65;
+  line-height: 1.68;
 }
 
 .content p,
 .content ul,
 .content ol{
-  margin-bottom: 0.9rem;
+  margin-bottom: .95rem;
 }
 
 .content h2{
   margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
 }
 
 .content h3{
-  margin-top: 1.5rem;
-  margin-bottom: 0.6rem;
+  margin-top: 1.4rem;
+  margin-bottom: .55rem;
 }
 
 .content ul,
