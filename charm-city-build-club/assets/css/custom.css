@@ -1,0 +1,415 @@
+/* -------------------------------------------------
+   Blueprint Maintenance Services — Pro Theme
+   Paste into: assets/css/custom.css
+-------------------------------------------------- */
+
+:root{
+  --bg: #0b1220;
+  --surface: #0f1a2e;
+
+  --ink: #0f172a;
+  --muted: rgba(15,23,42,0.70);
+
+  --brand: #1e40af;        /* deep blueprint blue */
+  --brand-hover: #1e3a8a;  /* deeper on hover */
+  --brand-2: #6366f1;      /* vibrant indigo accent */
+  --success: #059669;
+
+  --ring: rgba(30,64,175,.20);
+  --radius: 18px;
+}
+
+/* Base */
+html, body{ height: 100%; }
+body{
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, .display-5, .navbar-brand{
+  font-family: 'Outfit', 'Inter', sans-serif;
+  letter-spacing: -.02em;
+  font-weight: 700;
+}
+/* Hero lead copy: sharper, more professional */
+.lead{
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.05rem;          /* slightly tighter than default */
+  line-height: 1.58;           /* crisper than 1.7 */
+  color: rgba(15,23,42,.82);   /* darker = more “pro” */
+  max-width: 56ch;             /* prevents overly long lines */
+}
+
+/* Optional: make hero paragraph even tighter without affecting other leads */
+.hero .lead{
+  font-size: 1.04rem;
+  line-height: 1.55;
+  max-width: 58ch;
+}
+
+/* Optional: add a “lead-strong” class to bold the first sentence */
+.lead-strong{
+  font-weight: 600;
+  color: rgba(15,23,42,.90);
+}
+
+/* Focus ring */
+a:focus, .btn:focus, .form-control:focus{
+  box-shadow: 0 0 0 .25rem var(--ring) !important;
+  outline: none;
+}
+
+/* -------------------------------------------------
+   Navbar
+-------------------------------------------------- */
+
+/* Default (light) navbar */
+.navbar{
+  background: rgba(255,255,255,0.95) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(15,23,42,.06) !important;
+  position: relative;
+  z-index: 9999;
+}
+
+.navbar-brand{
+  letter-spacing: -.01em;
+  font-weight: 600;
+}
+
+.nav-link{
+  color: rgba(15,23,42,.75) !important;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.nav-link:hover{
+  color: var(--brand) !important;
+}
+
+/* Tinted/Dark navbar option
+   Use: <nav class="navbar navbar-expand-lg navbar-tinted sticky-top">
+*/
+.navbar.navbar-tinted{
+  background: radial-gradient(900px 500px at 20% 0%, rgba(99,102,241,.22), transparent 60%),
+              linear-gradient(180deg, rgba(11,18,32,.92), rgba(11,18,32,.86)) !important;
+  border-bottom: 1px solid rgba(255,255,255,.10) !important;
+}
+
+.navbar.navbar-tinted .navbar-brand,
+.navbar.navbar-tinted .nav-link{
+  color: rgba(255,255,255,.86) !important;
+}
+
+.navbar.navbar-tinted .nav-link:hover{
+  color: rgba(255,255,255,1) !important;
+}
+
+.navbar-toggler{
+  border-color: rgba(15,23,42,.18);
+}
+.navbar-toggler-icon{
+  background-image: var(--bs-navbar-toggler-icon-bg);
+}
+
+/* Ensure toggler visible on tinted nav */
+.navbar.navbar-tinted .navbar-toggler{
+  border-color: rgba(255,255,255,.25);
+}
+.navbar.navbar-tinted .navbar-toggler-icon{
+  filter: invert(1);
+}
+
+/* -------------------------------------------------
+   Buttons
+-------------------------------------------------- */
+.btn{
+  font-family: 'Outfit', 'Inter', sans-serif;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  transition: all 0.2s ease;
+}
+
+.btn-primary{
+  background: var(--brand);
+  border: none;
+  color: white;
+  box-shadow: 0 2px 8px rgba(30,64,175,.25),
+              0 1px 2px rgba(30,64,175,.15);
+}
+.btn-primary:hover{
+  background: var(--brand-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(30,64,175,.30),
+              0 2px 4px rgba(30,64,175,.20);
+}
+.btn-primary:active{ transform: translateY(0); }
+
+.btn-outline-primary{
+  border: 1.5px solid var(--brand);
+  color: var(--brand);
+  background: transparent;
+}
+.btn-outline-primary:hover{
+  background: var(--brand);
+  color: white;
+  border-color: var(--brand);
+}
+
+.btn-outline-secondary{
+  border: 1.5px solid rgba(15,23,42,.18);
+  color: rgba(15,23,42,.80);
+  background: transparent;
+}
+.btn-outline-secondary:hover{
+  border-color: rgba(15,23,42,.30);
+  background: rgba(15,23,42,.05);
+  color: var(--ink);
+}
+
+.btn-sm{ padding: 0.45rem 0.9rem; }
+.btn-lg{ padding: 0.85rem 2rem; font-size: 1.05rem; }
+
+/* -------------------------------------------------
+   Badges / chips
+-------------------------------------------------- */
+.badge-soft{
+  background: rgba(30,64,175,.08);
+  color: var(--brand);
+  border: 1px solid rgba(30,64,175,.12);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.badge.text-bg-light{
+  background: rgba(15,23,42,.06) !important;
+  color: rgba(15,23,42,.75) !important;
+  border: 1px solid rgba(15,23,42,.12);
+  font-weight: 600;
+}
+
+.project-img {
+  width: 100%;
+  /* Force a square or specific rectangle */
+  aspect-ratio: 1 / 1; 
+  /* This prevents the image from looking squashed */
+  object-fit: cover; 
+  /* Optional: keeps the focus on the center of the photo */
+  object-position: center;
+}
+
+/* -------------------------------------------------
+   Hero section (adds “pop” while staying clean)
+   Use: <section class="py-5 hero">
+-------------------------------------------------- */
+.hero{
+  background:
+    radial-gradient(1400px 700px at 10% 0%, rgba(30,64,175,.12), transparent 60%),
+    radial-gradient(900px 600px at 90% 20%, rgba(99,102,241,.14), transparent 55%),
+    linear-gradient(180deg, rgba(249,250,251,1), rgba(255,255,255,1));
+  border-bottom: 1px solid rgba(15,23,42,.06);
+}
+
+.hero .badge-soft{
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(15,23,42,.10);
+  color: rgba(15,23,42,.80);
+}
+
+/* -------------------------------------------------
+   Cards
+-------------------------------------------------- */
+.hero-card{
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(2,6,23,.08);
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+.hero-card::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+}
+
+.card-pro{
+  border-radius: var(--radius);
+  border: 1px solid rgba(15,23,42,.08);
+  background: #fff;
+  box-shadow: 0 12px 40px rgba(2,6,23,.06);
+  transition: all 0.3s ease;
+}
+.card-pro:hover{
+  box-shadow: 0 16px 50px rgba(2,6,23,.10);
+  transform: translateY(-2px);
+}
+
+.card-pro .kicker{
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--brand-2);
+  font-weight: 700;
+}
+.card-pro .title{
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--ink);
+}
+.card-pro .desc{
+  color: rgba(15,23,42,.70);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Make your simple bordered blocks feel nicer */
+.border.rounded-3{
+  border-color: rgba(15,23,42,.08) !important;
+  transition: all 0.3s ease;
+}
+.border.rounded-3:hover{
+  border-color: rgba(30,64,175,.25) !important;
+  box-shadow: 0 4px 12px rgba(30,64,175,.08);
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------
+   Section surfaces (your “bands”)
+-------------------------------------------------- */
+.surface{
+  background: radial-gradient(1400px 700px at 15% 0%, rgba(99,102,241,.06), transparent 65%),
+              radial-gradient(1000px 600px at 85% 30%, rgba(30,64,175,.05), transparent 60%),
+              rgba(249,250,251,1);
+  border-top: 1px solid rgba(15,23,42,.06);
+  border-bottom: 1px solid rgba(15,23,42,.06);
+}
+.bg-light{ background: rgba(249,250,251,1) !important; }
+
+/* -------------------------------------------------
+   Footer
+-------------------------------------------------- */
+.site-footer{
+  background: radial-gradient(1200px 600px at 10% 0%, rgba(30,64,175,.15), transparent 60%),
+              radial-gradient(900px 500px at 90% 20%, rgba(99,102,241,.12), transparent 60%),
+              var(--bg);
+  color: rgba(255,255,255,.92);
+}
+.site-footer .text-muted{
+  color: rgba(255,255,255,.68) !important;
+}
+
+.footer-title{
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  color: rgba(255,255,255,.75);
+  margin-bottom: .75rem;
+}
+
+.footer-links a{
+  display: inline-block;
+  padding: .3rem 0;
+  color: rgba(255,255,255,.80);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-links a:hover{ color: var(--brand-2); }
+
+.footer-contact{
+  color: rgba(255,255,255,.88);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer-contact:hover{ color: var(--brand-2); }
+
+.footer-legal{
+  color: rgba(255,255,255,.72);
+  text-decoration: none;
+}
+.footer-legal:hover{ color: rgba(255,255,255,1); }
+
+.footer-hr{ border-color: rgba(255,255,255,.14); }
+
+.footer-mark{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+.footer-btn{
+  border-radius: 12px;
+  border-color: rgba(255,255,255,.22) !important;
+  transition: all 0.2s ease;
+}
+.footer-btn:hover{
+  border-color: var(--brand-2) !important;
+  background: rgba(99,102,241,.15) !important;
+}
+
+/* Fonts */
+body{
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6, .display-5, .navbar-brand{
+  font-family: 'Outfit', 'Inter', sans-serif;
+  letter-spacing: -.02em;
+  font-weight: 700;
+}
+
+.btn{
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Optional: subtle global smoothing */
+hr{ opacity: .12; }
+
+/* Content: subtle global smoothing */
+.content{
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.content p,
+.content ul,
+.content ol{
+  margin-bottom: 0.9rem;
+}
+
+.content h2{
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.content h3{
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.content ul,
+.content ol{
+  padding-left: 1.2rem;
+}
+
+@media (max-width: 600px){
+  .content{ font-size: 17px; }
+}

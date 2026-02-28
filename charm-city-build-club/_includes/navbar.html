@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="{{ '/' | relative_url }}">
+      <img
+        src="{{ '/assets/img/Icon.jpg' | relative_url }}"
+        alt="Blueprint Maintenance Services"
+        width="34"
+        height="34"
+        class="rounded-2"
+        style="object-fit:contain;"
+      />
+      <span class="d-none d-sm-inline">Blueprint Maintenance and Handyman Services</span>
+    </a>
+
+    <button
+      id="navToggle"
+      class="navbar-toggler"
+      type="button"
+      aria-controls="mainNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="{{ '/services/' | relative_url }}">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/about/' | relative_url }}">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/contact/' | relative_url }}">Contact</a></li>
+
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-primary btn-sm px-3" href="{{ '/quote/' | relative_url }}">Request a Quote</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
