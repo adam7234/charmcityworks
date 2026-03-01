@@ -7,6 +7,24 @@
   --raw-rule: 1px solid var(--raw-rule-color);
 }
 
+/* Force dark background — Bootstrap reboot overrides body bg */
+body.home-page,
+body.home-page main {
+  background: var(--raw-black) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* Kill any Bootstrap container constraints inside main */
+body.home-page main > .container,
+body.home-page main > .container-fluid,
+body.home-page main > .container-xl {
+  max-width: none !important;
+  padding: 0 !important;
+}
+
 body.home-page {
   background: var(--raw-black);
   color: var(--raw-white);
