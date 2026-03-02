@@ -8,56 +8,52 @@
 }
 
 /* ============================================================
-   NUCLEAR RESET â€” defeat Bootstrap + custom.css on home page
+   BOOTSTRAP + CUSTOM.CSS COLLISION FIXES
+   custom.css sets body bg to #fcfcf9 and .hero to #f5f7f4
+   We need !important to win on every colliding selector
    ============================================================ */
 
-html body.home-page {
+body.home-page {
   background: var(--raw-black) !important;
   color: var(--raw-white) !important;
-  font-size: 16px !important;
 }
 
-html body.home-page main {
+body.home-page main {
   background: var(--raw-black) !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   max-width: none !important;
   width: 100% !important;
 }
 
-html body.home-page main > .container,
-html body.home-page main > .container-fluid,
-html body.home-page main > .container-xl,
-html body.home-page main > .container-lg {
+body.home-page main > .container,
+body.home-page main > .container-fluid,
+body.home-page main > .container-xl {
   max-width: none !important;
   padding: 0 !important;
-  margin: 0 !important;
 }
 
-html body.home-page .site-footer {
+body.home-page .site-footer {
   margin-top: 0 !important;
 }
 
-/* custom.css .hero { background: #f5f7f4 } â€” killed here */
-html body.home-page .hero {
+/* Fix: custom.css has .hero { background: #f5f7f4 } which collides */
+body.home-page .hero {
   background: var(--raw-black) !important;
   border-bottom: var(--raw-rule) !important;
 }
 
-/* custom.css sets h1-h6 to Inter â€” killed here */
+/* Fix: custom.css/Bootstrap sets h1-h6 to Inter font */
 .raw-home h1,
 .raw-home h2,
 .raw-home h3,
-.raw-home h4,
-.raw-home h5,
-.raw-home h6 {
+.raw-home h4 {
   font-family: 'Bebas Neue', sans-serif !important;
+  letter-spacing: normal !important;
   font-weight: 400 !important;
-  letter-spacing: 0.02em !important;
-  color: var(--raw-white) !important;
-  margin: 0 !important;
 }
 
+/* Fix: Bootstrap sets * { box-sizing } and p { margin-bottom } */
 .raw-home p {
   margin-bottom: 0 !important;
 }
@@ -122,7 +118,7 @@ html body.home-page .hero {
 }
 
 /* ============================================================
-   SHARED LABELS â€” px so root font-size can't shrink them
+   SHARED LABELS
    ============================================================ */
 
 .raw-home .hero-eyebrow,
@@ -130,11 +126,10 @@ html body.home-page .hero {
 .raw-home .manifesto-label,
 .raw-home .photo-meta,
 .raw-home .cta-meta {
-  font-family: 'Barlow Condensed', sans-serif !important;
+  font-family: 'Barlow Condensed', sans-serif;
   text-transform: uppercase;
   color: #a8a4a0;
-  letter-spacing: 0.2em;
-  font-size: 13px !important;
+  letter-spacing: 0.28em;
 }
 
 /* ============================================================
@@ -170,22 +165,24 @@ html body.home-page .hero {
 
 .raw-home .hero-eyebrow {
   margin-bottom: 32px;
+  font-size: 0.72rem;
 }
 
 .raw-home .hero-headline {
-  margin: 0 !important;
+  margin: 0;
   color: var(--raw-white) !important;
   font-family: 'Bebas Neue', sans-serif !important;
-  font-size: clamp(70px, 10vw, 144px) !important;
+  font-size: clamp(4.4rem, 10vw, 9rem) !important;
   line-height: 0.92 !important;
   letter-spacing: 0.02em !important;
+  text-wrap: balance;
 }
 
 .raw-home .hero-headline em {
   display: block;
   margin-top: 6px;
-  color: var(--raw-mid) !important;
-  font-family: 'Barlow Condensed', sans-serif !important;
+  color: var(--raw-mid);
+  font-family: 'Barlow Condensed', sans-serif;
   font-style: italic;
   font-weight: 300;
   font-size: 0.45em;
@@ -200,7 +197,7 @@ html body.home-page .hero {
   max-width: 440px;
   margin-bottom: 36px;
   color: var(--raw-mid);
-  font-size: 16px !important;
+  font-size: 0.95rem;
   line-height: 1.75;
 }
 
@@ -216,21 +213,20 @@ html body.home-page .hero {
    ============================================================ */
 
 .raw-home .btn-primary-raw {
-  display: inline-block !important;
+  display: inline-block;
   border: none !important;
   border-radius: 0 !important;
   background: var(--raw-white) !important;
   color: var(--raw-black) !important;
-  padding: 14px 32px !important;
+  padding: 14px 32px;
   font-family: 'Barlow Condensed', sans-serif !important;
   font-weight: 700 !important;
-  font-size: 14px !important;
-  letter-spacing: 0.2em !important;
-  text-transform: uppercase !important;
-  transition: opacity 0.2s ease !important;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
   box-shadow: none !important;
   transform: none !important;
-  line-height: 1.4 !important;
 }
 
 .raw-home .btn-primary-raw:hover,
@@ -239,34 +235,33 @@ html body.home-page .hero {
   color: var(--raw-black) !important;
   background: var(--raw-white) !important;
   transform: none !important;
-  box-shadow: none !important;
 }
 
 .raw-home .btn-ghost {
-  display: inline-flex !important;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--raw-mid) !important;
-  font-family: 'Barlow Condensed', sans-serif !important;
-  font-size: 13px !important;
+  color: var(--raw-mid);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   transition: color 0.2s ease;
   background: transparent !important;
   border: none !important;
   border-radius: 0 !important;
-  padding: 0 !important;
+  padding: 0;
   box-shadow: none !important;
 }
 
 .raw-home .btn-ghost::after {
-  content: 'â†’';
+  content: '→';
   transition: transform 0.2s ease;
 }
 
 .raw-home .btn-ghost:hover,
 .raw-home .btn-ghost:focus-visible {
-  color: var(--raw-white) !important;
+  color: var(--raw-white);
 }
 
 .raw-home .btn-ghost:hover::after,
@@ -275,14 +270,14 @@ html body.home-page .hero {
 }
 
 /* ============================================================
-   PILLARS
+   HERO EXTRAS
    ============================================================ */
 
 .raw-home .hero-vertical-text {
   align-self: flex-end;
   color: var(--raw-low);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 11px;
+  font-size: 0.65rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   writing-mode: vertical-lr;
@@ -318,26 +313,24 @@ html body.home-page .hero {
   padding-top: 3px;
   color: var(--raw-low);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 12px;
+  font-size: 0.68rem;
   letter-spacing: 0.1em;
 }
 
 .raw-home .pillar-label {
   margin-bottom: 4px;
-  color: var(--raw-white) !important;
-  font-family: 'Barlow Condensed', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 17px !important;
+  color: var(--raw-white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .raw-home .pillar-desc {
-  color: #b8b4ac !important;
-  font-size: 15px !important;
-  line-height: 1.6;
-  font-family: 'Barlow', sans-serif !important;
-  font-weight: 300 !important;
+  color: #b8b4ac;
+  font-size: 0.85rem;
+  line-height: 1.55;
 }
 
 /* ============================================================
@@ -386,6 +379,10 @@ html body.home-page .hero {
     #0e0e0e;
 }
 
+.raw-home .photo-meta {
+  font-size: 0.75rem;
+}
+
 /* ============================================================
    MARQUEE
    ============================================================ */
@@ -410,7 +407,7 @@ html body.home-page .hero {
   padding: 0 40px;
   color: var(--raw-mid);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
+  font-size: 1.1rem;
   letter-spacing: 0.15em;
 }
 
@@ -428,11 +425,15 @@ html body.home-page .hero {
   padding: 60px 40px 20px;
 }
 
+.raw-home .section-label {
+  font-size: 0.68rem;
+}
+
 .raw-home .section-title {
-  color: var(--raw-white) !important;
+  color: var(--raw-white);
   font-family: 'Bebas Neue', sans-serif !important;
-  font-size: clamp(40px, 5vw, 72px) !important;
-  line-height: 1 !important;
+  font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+  line-height: 1;
   letter-spacing: 0.04em !important;
 }
 
@@ -461,26 +462,24 @@ html body.home-page .hero {
   margin-bottom: 24px;
   color: #383838;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 80px;
+  font-size: 5rem;
   line-height: 1;
 }
 
 .raw-home .step-title {
   margin-bottom: 12px;
-  color: var(--raw-white) !important;
-  font-family: 'Barlow Condensed', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
+  color: var(--raw-white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .raw-home .step-desc {
-  color: #b8b4ac !important;
-  font-size: 15px !important;
+  color: #b8b4ac;
+  font-size: 0.85rem;
   line-height: 1.7;
-  font-family: 'Barlow', sans-serif !important;
-  font-weight: 300 !important;
 }
 
 /* ============================================================
@@ -511,27 +510,25 @@ html body.home-page .hero {
   padding: 2px 8px;
   color: var(--raw-low);
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
+  font-size: 0.62rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .raw-home .type-name {
   margin-bottom: 10px;
-  color: var(--raw-white) !important;
-  font-family: 'Barlow Condensed', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 17px !important;
+  color: var(--raw-white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .raw-home .type-desc {
-  color: #b8b4ac !important;
-  font-size: 14px !important;
+  color: #b8b4ac;
+  font-size: 0.82rem;
   line-height: 1.65;
-  font-family: 'Barlow', sans-serif !important;
-  font-weight: 300 !important;
 }
 
 /* ============================================================
@@ -548,11 +545,15 @@ html body.home-page .hero {
   padding: 80px 40px;
 }
 
+.raw-home .manifesto-label {
+  font-size: 0.68rem;
+}
+
 .raw-home .manifesto-body {
-  color: var(--raw-white) !important;
-  font-family: 'Barlow Condensed', sans-serif !important;
+  color: var(--raw-white);
+  font-family: 'Barlow Condensed', sans-serif;
   font-weight: 300;
-  font-size: clamp(22px, 2.5vw, 32px) !important;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
   line-height: 1.5;
 }
 
@@ -578,11 +579,10 @@ html body.home-page .hero {
 }
 
 .raw-home .cta-bar-text {
-  font-family: 'Bebas Neue', sans-serif !important;
-  font-size: clamp(32px, 4vw, 56px) !important;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1;
   letter-spacing: 0.04em;
-  color: var(--raw-white) !important;
 }
 
 .raw-home .cta-bar-text span {
@@ -595,6 +595,10 @@ html body.home-page .hero {
   flex-direction: column;
   align-items: flex-end;
   gap: 12px;
+}
+
+.raw-home .cta-meta {
+  font-size: 0.75rem;
 }
 
 /* ============================================================
@@ -746,7 +750,7 @@ html body.home-page .hero {
 
 @media (max-width: 640px) {
   .raw-home .hero-headline {
-    font-size: clamp(56px, 20vw, 80px) !important;
+    font-size: clamp(3.5rem, 20vw, 5rem) !important;
   }
 
   .raw-home .hero-actions {
@@ -761,16 +765,13 @@ html body.home-page .hero {
 
   .raw-home .marquee-item {
     padding: 0 22px;
-    font-size: 15px;
+    font-size: 0.95rem;
   }
 
-  .raw-home .hero-desc {
-    font-size: 15px !important;
-  }
-
+  .raw-home .hero-desc,
   .raw-home .step-desc,
   .raw-home .type-desc,
   .raw-home .pillar-desc {
-    font-size: 14px !important;
+    font-size: 0.88rem;
   }
 }
