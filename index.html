@@ -5,219 +5,427 @@ description: Charm City Build Club connects small practical Baltimore jobs with 
 ---
 
 <!--
-  The homepage is the main sales page.
-  It should answer the value proposition quickly for:
-  1) project submitters
-  2) volunteers
+  ============================================================
+  CHARM CITY BUILD CLUB — HOMEPAGE
+  ============================================================
+
+  DESIGN PHILOSOPHY: Monochrome editorial. Think a well-designed
+  zine or newspaper, not a SaaS landing page. The typography does
+  the heavy lifting. Restraint IS the style.
+
+  COLOR SYSTEM (CSS custom properties, defined in custom.css):
+  --black  : near-black for headings and structure
+  --ink    : body text
+  --muted  : secondary / supporting text
+  --soft   : light surface for cards
+  --line   : subtle borders
+  --white  : #fff
+
+  WHY MONOCHROME?
+  - Forces clarity: hierarchy comes from size + weight, not color
+  - Feels confident and editorial, not startup-generic
+  - Every element must earn its place — nothing hides behind hue
+
+  TWO AUDIENCES, ONE PAGE:
+  This page must convert both:
+    1. Project hosts  → they need to feel: "This is easy and safe"
+    2. Volunteers     → they need to feel: "This sounds fun and real"
+  Each section is annotated to explain what job it does.
+  ============================================================
 -->
 
-<section class="site-hero border-bottom">
-  <div class="container py-5 py-lg-6">
-    <div class="row align-items-center g-4 g-lg-5">
+
+<!-- ============================================================
+  HERO SECTION
+  Job: Stop the scroll. State the value prop in under 5 seconds.
+  
+  STRUCTURE LESSON:
+  - Eyebrow (small label above headline) = context setter
+  - Headline = the single most important sentence on the page
+  - Subhead = expand the headline, don't repeat it
+  - Two CTAs = one for each audience (hosts vs. volunteers)
+  - Stat bar = social proof / credibility, below the fold line
+
+  LAYOUT: Bootstrap's 12-column grid splits the hero into
+  left (7 cols) for copy and right (5 cols) for a "card" summary.
+  On mobile, Bootstrap stacks them vertically automatically.
+  ============================================================ -->
+<section class="hero border-bottom">
+  <div class="container py-5 py-lg-7">
+    <div class="row align-items-center g-5">
+
+      <!-- LEFT: Primary copy column -->
       <div class="col-lg-7">
-        <div class="eyebrow mb-3">Baltimore-based • useful work • learn by doing</div>
-        <h1 class="display-4 mb-3">Turn small overlooked jobs into community build days.</h1>
-        <p class="hero-copy mb-4">
-          Charm City Build Club connects project hosts who need extra hands with volunteers who want to do real work, meet people, and learn practical skills. The model is simple: selected projects get free volunteer labor, and volunteers get a fun, social way to contribute.
+
+        <!-- Eyebrow: tiny uppercase label sets context immediately.
+             Uses letter-spacing to feel structured, not shouted. -->
+        <p class="eyebrow mb-3">Baltimore-based &middot; useful work &middot; learn by doing</p>
+
+        <!-- Headline: display-4 is Bootstrap's largest headline class.
+             The goal is ONE punchy sentence. Under 12 words if possible.
+             "Build days" is concrete — it creates a mental image. -->
+        <h1 class="display-4 mb-4">
+          Turn small overlooked jobs<br class="d-none d-md-block">
+          into community build days.
+        </h1>
+
+        <!-- Subhead: expands on the headline. Explains the model.
+             max-width: 62ch keeps lines short = easier to read.
+             62 characters per line is a classic readability sweet spot. -->
+        <p class="lead mb-5">
+          We connect Baltimore project hosts who need extra hands with
+          volunteers who want real work, real community, and practical skills.
+          Selected projects get free coordinated labor. Volunteers get
+          something worth showing up for.
         </p>
 
-        <!-- Primary actions point to the two main conversion paths. -->
-        <div class="d-flex flex-wrap gap-3 mb-4">
-          <a href="{{ '/submit-project/' | relative_url }}" class="btn btn-primary btn-lg">Submit a Project</a>
-          <a href="{{ '/contact/' | relative_url }}" class="btn btn-outline-secondary btn-lg">Volunteer / Contact</a>
+        <!-- CTAs: Two paths, one for each audience.
+             Primary (filled) = hosts, because getting projects is the
+             supply-side constraint. Secondary (outlined) = volunteers.
+             btn-lg makes them easy to tap on mobile. -->
+        <div class="d-flex flex-wrap gap-3 mb-6">
+          <a href="{{ '/submit-project/' | relative_url }}"
+             class="btn btn-primary btn-lg">
+            Submit a Project
+          </a>
+          <a href="{{ '/contact/' | relative_url }}"
+             class="btn btn-outline-dark btn-lg">
+            Volunteer / Get Involved
+          </a>
         </div>
 
-        <div class="row g-3">
-          <div class="col-sm-4">
-            <div class="mini-stat">
-              <div class="mini-stat-label">For hosts</div>
-              <div class="mini-stat-value">Free labor</div>
-              <p>Selected projects get coordinated volunteer help at no charge.</p>
-            </div>
+        <!-- Mini stat bar: three quick proof points below the CTAs.
+             These reassure skeptics without interrupting the flow.
+             Each one is paired: label (what it is) + value (what you get). -->
+        <div class="row g-3 pt-2 border-top">
+          <div class="col-4">
+            <p class="stat-label mb-1">For hosts</p>
+            <p class="stat-value mb-0">Free labor</p>
           </div>
-
-          <div class="col-sm-4">
-            <div class="mini-stat">
-              <div class="mini-stat-label">For volunteers</div>
-              <div class="mini-stat-value">Real work</div>
-              <p>Show up, help, and leave having done something concrete.</p>
-            </div>
+          <div class="col-4">
+            <p class="stat-label mb-1">For volunteers</p>
+            <p class="stat-value mb-0">Real work</p>
           </div>
-
-          <div class="col-sm-4">
-            <div class="mini-stat">
-              <div class="mini-stat-label">Shared outcome</div>
-              <div class="mini-stat-value">Visible value</div>
-              <p>Small jobs actually get done instead of sitting forever.</p>
-            </div>
+          <div class="col-4">
+            <p class="stat-label mb-1">For Baltimore</p>
+            <p class="stat-value mb-0">Visible change</p>
           </div>
         </div>
       </div>
 
+      <!-- RIGHT: "The offer" card — a scannable summary.
+           This serves readers who skim to the card first.
+           Think of it as a visual anchor / table of contents.
+           The card class comes from custom.css and adds the border + shadow. -->
       <div class="col-lg-5">
-        <div class="info-card h-100">
-          <div class="card-label">The offer</div>
-          <h2 class="h3 mb-3">A direct exchange that makes sense</h2>
-          <ul class="clean-list mb-0">
-            <li>Project submitters get free volunteer labor on small practical jobs that are reviewed for fit and safety.</li>
-            <li>Volunteers get fun, community, hands-on work, and the chance to learn useful skills.</li>
-            <li>The city gets visible improvement through shared effort instead of more talk.</li>
+        <div class="feature-card h-100">
+
+          <!-- Card label = a small category tag, visually distinct from headings -->
+          <p class="card-label mb-3">The model</p>
+          <h2 class="h3 mb-4">A direct exchange that actually makes sense</h2>
+
+          <!-- clean-list removes default list styling so we control the spacing.
+               Each bullet is a complete thought — no sentence fragments. -->
+          <ul class="clean-list">
+            <li>
+              <strong>Hosts</strong> submit small practical jobs.
+              Accepted projects get free, coordinated volunteer labor.
+            </li>
+            <li>
+              <strong>Volunteers</strong> show up, do real hands-on work,
+              meet people, and build practical skills over time.
+            </li>
+            <li>
+              <strong>The city</strong> gets visible improvement through
+              shared effort instead of more talk.
+            </li>
           </ul>
+
+          <!-- Divider rule: a simple hr with a label gives structure
+               inside a card without needing a new heading. -->
+          <hr class="my-4">
+          <p class="text-muted small mb-0">
+            Projects are reviewed for scope, safety, and volunteer fit
+            before anything is scheduled.
+          </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- This section makes the two audiences unmistakable. -->
-<section class="py-5">
+
+<!-- ============================================================
+  TWO-AUDIENCE SECTION
+  Job: Make each audience feel directly addressed. 
+  
+  LESSON — Why this section exists:
+  A homepage that talks to "everyone" convinces no one.
+  By naming each group explicitly and listing what THEY get,
+  each reader self-selects and feels the page is for them.
+
+  LAYOUT: Two equal columns side by side (col-lg-6 each).
+  On mobile (< lg breakpoint), they stack vertically.
+  ============================================================ -->
+<section class="py-6 border-bottom">
   <div class="container">
-    <div class="section-intro mb-4">
-      <div class="eyebrow mb-2">Who this is for</div>
-      <h2 class="mb-2">Built for two groups at the same time</h2>
-      <p class="section-copy mb-0">
-        The site needs to sell both sides of the exchange. If either side is vague, the whole idea feels weak.
+
+    <!-- Section header: eyebrow + headline + supporting line.
+         max-width: 52ch keeps this tight. It's a label, not an essay. -->
+    <div class="section-header mb-5">
+      <p class="eyebrow mb-2">Who this is for</p>
+      <h2 class="mb-2">Two groups. One shared goal.</h2>
+      <p class="text-muted mb-0">
+        The exchange only works when both sides get something real.
+        Here's what each group actually gets.
       </p>
     </div>
 
     <div class="row g-4">
+
+      <!-- AUDIENCE CARD: Project Hosts
+           Tone: Practical, low-friction. Address their hesitation:
+           "Is this too complicated?" Answer: no, there's a clear process. -->
       <div class="col-lg-6">
         <div class="audience-card h-100">
-          <div class="card-label">Project submitters</div>
-          <h3 class="h4 mb-3">What project hosts get</h3>
-          <ul class="clean-list">
-            <li>Free volunteer labor on selected small jobs</li>
+          <p class="card-label mb-3">Project hosts</p>
+          <h3 class="h4 mb-4">What you get when you submit a project</h3>
+          <ul class="clean-list mb-4">
+            <li>Free volunteer labor on selected small, practical jobs</li>
             <li>Extra hands for cleanup, prep, painting, and other beginner-friendly tasks</li>
-            <li>A clear review process instead of random chaos</li>
-            <li>Help on jobs that are useful but often too small to hire out immediately</li>
+            <li>A clear review process — not random chaos</li>
+            <li>Help on jobs that are useful but too small to justify hiring out immediately</li>
           </ul>
-          <a href="{{ '/submit-project/' | relative_url }}" class="btn btn-primary mt-2">Submit a Project</a>
+          <!-- Anchor CTA inside the card keeps conversion close to the sell -->
+          <a href="{{ '/submit-project/' | relative_url }}"
+             class="btn btn-primary">Submit a Project &rarr;</a>
         </div>
       </div>
 
+      <!-- AUDIENCE CARD: Volunteers
+           Tone: Fun, social, tangible. Address their hesitation:
+           "Is this just charity work?" Answer: no, you get real things too. -->
       <div class="col-lg-6">
         <div class="audience-card h-100">
-          <div class="card-label">Volunteers</div>
-          <h3 class="h4 mb-3">What volunteers get</h3>
-          <ul class="clean-list">
-            <li>Fun and a reason to show up</li>
-            <li>Community and shared effort with other people</li>
-            <li>Real physical work that feels useful</li>
-            <li>Hands-on learning and practical skills you can build over time</li>
+          <p class="card-label mb-3">Volunteers</p>
+          <h3 class="h4 mb-4">What you get when you show up</h3>
+          <ul class="clean-list mb-4">
+            <li>Fun and a real reason to leave the house</li>
+            <li>Community and shared effort with other people in Baltimore</li>
+            <li>Physical work that feels useful, not performative</li>
+            <li>Hands-on skill building you can carry into future projects</li>
           </ul>
-          <a href="{{ '/contact/' | relative_url }}" class="btn btn-outline-secondary mt-2">Get Involved</a>
+          <a href="{{ '/contact/' | relative_url }}"
+             class="btn btn-outline-dark">Get Involved &rarr;</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<section class="py-5 border-top">
+
+<!-- ============================================================
+  HOW IT WORKS SECTION
+  Job: Remove friction. Skeptics want a process before they commit.
+  
+  LESSON — Numbered steps work because:
+  1. They signal "there is a clear path"
+  2. They're scannable — readers jump to the step they care about
+  3. Four steps is the sweet spot: enough to feel real, not overwhelming
+
+  LAYOUT: Four equal columns on xl screens, two-by-two on md,
+  stacked on mobile. Bootstrap handles this with col-md-6 col-xl-3.
+  ============================================================ -->
+<section class="py-6 border-bottom">
   <div class="container">
-    <div class="section-intro mb-4">
-      <div class="eyebrow mb-2">How it works</div>
-      <h2 class="mb-2">Simple process, not a complicated platform</h2>
-      <p class="section-copy mb-0">
-        The process should feel straightforward because it is straightforward.
+
+    <div class="section-header mb-5">
+      <p class="eyebrow mb-2">How it works</p>
+      <h2 class="mb-2">Simple process. Not a platform.</h2>
+      <p class="text-muted mb-0">
+        Four steps from submission to build day. No signup walls,
+        no complicated onboarding.
       </p>
     </div>
 
     <div class="row g-4">
+
+      <!-- STEP CARDS: Each has a large number, short title, one sentence.
+           Resist the urge to add more — brevity signals confidence. -->
+
       <div class="col-md-6 col-xl-3">
         <div class="step-card h-100">
-          <div class="step-number">01</div>
-          <h3 class="h5">Project comes in</h3>
-          <p class="mb-0">A host submits a small practical job with basic details, photos, and context.</p>
+          <!-- The step number is styled as a circle badge in custom.css -->
+          <div class="step-number mb-3">01</div>
+          <h3 class="h5 mb-2">Project comes in</h3>
+          <p class="text-muted mb-0">
+            A host submits a small practical job with basic details,
+            photos, and context.
+          </p>
         </div>
       </div>
 
       <div class="col-md-6 col-xl-3">
         <div class="step-card h-100">
-          <div class="step-number">02</div>
-          <h3 class="h5">Fit gets reviewed</h3>
-          <p class="mb-0">The job is screened for scope, safety, and whether it makes sense for volunteer labor.</p>
+          <div class="step-number mb-3">02</div>
+          <h3 class="h5 mb-2">Fit gets reviewed</h3>
+          <p class="text-muted mb-0">
+            The job is screened for scope, safety, and whether it makes
+            sense for volunteer labor.
+          </p>
         </div>
       </div>
 
       <div class="col-md-6 col-xl-3">
         <div class="step-card h-100">
-          <div class="step-number">03</div>
-          <h3 class="h5">Volunteers show up</h3>
-          <p class="mb-0">People come together to do useful work, learn, and make visible progress.</p>
+          <div class="step-number mb-3">03</div>
+          <h3 class="h5 mb-2">Volunteers show up</h3>
+          <p class="text-muted mb-0">
+            People come together, do real work, and make visible
+            progress in a single day.
+          </p>
         </div>
       </div>
 
       <div class="col-md-6 col-xl-3">
         <div class="step-card h-100">
-          <div class="step-number">04</div>
-          <h3 class="h5">Everyone gets value</h3>
-          <p class="mb-0">The host gets help, volunteers get a meaningful experience, and the work actually moves.</p>
+          <div class="step-number mb-3">04</div>
+          <h3 class="h5 mb-2">Everyone gets value</h3>
+          <p class="text-muted mb-0">
+            The host gets help. Volunteers get a meaningful experience.
+            The work actually moves.
+          </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<section class="py-5 border-top">
+
+<!-- ============================================================
+  GOOD FIT SECTION
+  Job: Set expectations clearly so bad-fit projects don't flood in.
+  
+  LESSON — Specificity builds trust:
+  Vague claims ("all kinds of projects!") feel unbelievable.
+  Concrete examples ("debris removal, exterior painting") help
+  hosts self-qualify before they submit. This saves everyone time
+  and makes the organization feel competent, not desperate.
+  ============================================================ -->
+<section class="py-6 border-bottom">
   <div class="container">
-    <div class="section-intro mb-4">
-      <div class="eyebrow mb-2">Good fit</div>
+
+    <div class="section-header mb-5">
+      <p class="eyebrow mb-2">Good fit</p>
       <h2 class="mb-2">The kinds of projects that make sense</h2>
-      <p class="section-copy mb-0">
-        Keep the promise realistic. Smaller practical jobs are the sweet spot.
+      <p class="text-muted mb-0">
+        Smaller, beginner-friendly tasks are the sweet spot.
+        If your job is too big or needs licensed work, it's probably not the right fit.
       </p>
     </div>
 
     <div class="row g-4">
+
+      <!-- FIT CARDS: Short title + one-liner. No long explanations.
+           The headline does the work; the copy just confirms it. -->
+
       <div class="col-md-6 col-xl-3">
         <div class="fit-card h-100">
-          <h3 class="h5">Cleanup and prep</h3>
-          <p class="mb-0">Debris removal, clearing spaces, and getting an area ready for improvement.</p>
+          <!-- These small icons are Unicode — no icon library needed. 
+               Simple, readable, zero dependencies. -->
+          <div class="fit-icon mb-3">&#9632;</div>
+          <h3 class="h5 mb-2">Cleanup &amp; prep</h3>
+          <p class="text-muted mb-0">
+            Debris removal, clearing spaces, and getting an area ready
+            for improvement.
+          </p>
         </div>
       </div>
 
       <div class="col-md-6 col-xl-3">
         <div class="fit-card h-100">
-          <h3 class="h5">Painting and refresh work</h3>
-          <p class="mb-0">Straightforward cosmetic work that creates a visible before-and-after.</p>
+          <div class="fit-icon mb-3">&#9632;</div>
+          <h3 class="h5 mb-2">Painting &amp; refresh</h3>
+          <p class="text-muted mb-0">
+            Straightforward cosmetic work that creates a visible
+            before-and-after.
+          </p>
         </div>
       </div>
 
       <div class="col-md-6 col-xl-3">
         <div class="fit-card h-100">
-          <h3 class="h5">Yard and exterior cleanup</h3>
-          <p class="mb-0">Outdoor tasks that improve appearance, access, and basic upkeep.</p>
+          <div class="fit-icon mb-3">&#9632;</div>
+          <h3 class="h5 mb-2">Yard &amp; exterior</h3>
+          <p class="text-muted mb-0">
+            Outdoor tasks that improve appearance, access, and basic
+            upkeep.
+          </p>
         </div>
       </div>
 
       <div class="col-md-6 col-xl-3">
         <div class="fit-card h-100">
-          <h3 class="h5">Simple beginner-friendly tasks</h3>
-          <p class="mb-0">Low-risk jobs that make sense for shared effort and on-the-job learning.</p>
+          <div class="fit-icon mb-3">&#9632;</div>
+          <h3 class="h5 mb-2">Beginner-friendly tasks</h3>
+          <p class="text-muted mb-0">
+            Low-risk jobs that make sense for shared effort and
+            on-the-job learning.
+          </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<section class="py-5 border-top">
+
+<!-- ============================================================
+  BOTTOM CTA SECTION
+  Job: Catch the readers who made it to the bottom. They're warm.
+  
+  LESSON — The bottom CTA is often the highest-converting:
+  Anyone who scrolls this far is genuinely interested.
+  Don't make them scroll back up. Repeat the two CTAs here.
+  Keep the copy fresh — don't just copy the hero headline.
+
+  LAYOUT: Row with copy on left (col-lg-8) and buttons on right
+  (col-lg-4). On mobile, they stack with copy first, buttons second.
+  ============================================================ -->
+<section class="py-6">
   <div class="container">
     <div class="cta-panel">
       <div class="row align-items-center g-4">
+
+        <!-- Left: fresh framing of the value prop -->
         <div class="col-lg-8">
-          <div class="eyebrow mb-2">Next step</div>
-          <h2 class="mb-2">Have a project or want to help?</h2>
-          <p class="mb-0">
-            Submit a small practical job if you need extra hands. Reach out if you want to volunteer, meet people, and do useful work.
+          <p class="eyebrow mb-2">Ready to move?</p>
+          <h2 class="mb-3">Have a project, or want to help?</h2>
+          <p class="text-muted mb-0">
+            Submit a small practical job if you need extra hands.
+            Reach out if you want to volunteer, meet people, and
+            do something useful in Baltimore.
           </p>
         </div>
 
+        <!-- Right: stacked buttons. d-grid makes each button full-width
+             in its column, which looks intentional rather than awkward. -->
         <div class="col-lg-4">
-          <div class="d-grid gap-2">
-            <a href="{{ '/submit-project/' | relative_url }}" class="btn btn-primary btn-lg">Submit a Project</a>
-            <a href="{{ '/contact/' | relative_url }}" class="btn btn-outline-secondary btn-lg">Volunteer / Contact</a>
+          <div class="d-grid gap-3">
+            <a href="{{ '/submit-project/' | relative_url }}"
+               class="btn btn-primary btn-lg">
+              Submit a Project
+            </a>
+            <a href="{{ '/contact/' | relative_url }}"
+               class="btn btn-outline-dark btn-lg">
+              Volunteer / Contact
+            </a>
           </div>
         </div>
+
       </div>
     </div>
   </div>
