@@ -420,7 +420,7 @@ a:focus, .btn:focus, .form-control:focus, .form-select:focus {
 
 /* Custom bullet: a small em dash instead of a dot */
 .clean-list li::before {
-  content: 'â€”';
+  content: '\2014';  /* em dash as a unicode escape â€” immune to encoding issues */
   position: absolute;
   left: 0;
   color: var(--subtle);
