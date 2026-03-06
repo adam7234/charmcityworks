@@ -251,8 +251,8 @@ a:focus, .btn:focus, .form-control:focus, .form-select:focus {
 }
 
 .photo-cell img {
-  width: 100%;
-  height: 380px;
+  width: 100% !important;
+  height: 380px !important;
   object-fit: cover;
   display: block;
   filter: grayscale(100%);
