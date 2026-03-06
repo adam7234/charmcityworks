@@ -302,8 +302,6 @@ a:focus, .btn:focus, .form-control:focus, .form-select:focus {
   transition: opacity 0.2s ease;
   pointer-events: none;
 }
-.music-now-playing.visible { opacity: 1; }
-@media (max-width: 575.98px) { .music-widget { display: none; } }
 
 /* ============================================================
    CARDS
