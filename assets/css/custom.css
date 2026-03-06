@@ -250,6 +250,14 @@ a:focus, .btn:focus, .form-control:focus, .form-select:focus {
     var(--white);
 }
 
+.photo-cell img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%);
+}
+
 /* ── Music Widget ─────────────────────────────────────── */
 .music-widget {
   position: fixed;
