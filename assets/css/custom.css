@@ -243,12 +243,12 @@ a:focus, .btn:focus, .form-control:focus, .form-select:focus {
    top-right without introducing any color. It's direction +
    lightness, not hue.
    ============================================================ */
-hero {
-    position: relative;
-    background:
+.hero {
+  position: relative;  /* ← this is the fix */
+  background:
     radial-gradient(ellipse at top right, rgba(0,0,0,0.025) 0%, transparent 60%),
     var(--white);
-  }
+}
 
 /* ── Music Widget ─────────────────────────────────────── */
 .music-widget {
@@ -260,7 +260,6 @@ hero {
   align-items: flex-end;
   gap: 0.3rem;
 }
-
 .music-btn {
   display: inline-flex;
   align-items: center;
@@ -278,44 +277,24 @@ hero {
   cursor: pointer;
   transition: all 0.15s ease;
 }
-
-.music-btn:hover {
-  border-color: var(--muted);
-  color: var(--ink);
-}
-
-.music-btn.playing {
-  background: var(--black);
-  border-color: var(--black);
-  color: var(--white);
-}
-
-.music-btn.playing svg {
-  animation: music-pulse 1s ease-in-out infinite;
-}
-
+.music-btn:hover { border-color: var(--muted); color: var(--ink); }
+.music-btn.playing { background: var(--black); border-color: var(--black); color: var(--white); }
+.music-btn.playing svg { animation: music-pulse 1s ease-in-out infinite; }
 @keyframes music-pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.3; }
 }
-
 .music-now-playing {
   font-family: var(--font-body);
   font-size: 0.68rem;
   color: var(--subtle);
-  letter-spacing: 0.03em;
   opacity: 0;
   transition: opacity 0.2s ease;
   pointer-events: none;
 }
+.music-now-playing.visible { opacity: 1; }
+@media (max-width: 575.98px) { .music-widget { display: none; } }
 
-.music-now-playing.visible {
-  opacity: 1;
-}
-
-@media (max-width: 575.98px) {
-  .music-widget { display: none; }
-}
 /* ============================================================
    CARDS
    
